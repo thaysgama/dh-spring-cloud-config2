@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:  
+  cloud:
+    gateway:
+      routes:
+        - id: repositorio
+          uri: lb://REPOSITORIO
+          predicates:
+            - Path=/repositorio/**
+        - id: estoque
+          uri: http://ESTOQUE
+          predicates:
+           - Path=estoque/**
